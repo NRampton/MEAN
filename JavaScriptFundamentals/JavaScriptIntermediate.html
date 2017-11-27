@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function starString(num) {    // starString function console logs * (num) times
+      let output = '';
+      for (let i = 1; i <= num; i += 1) {
+        output += '*';
+      }
+      return output;
+    }
+
+    function drawStars(arr) {    // outputs a line of * sized to each element in an array
+      for (let i = 0; i < arr.length; i += 1) {
+        if (typeof arr[i] != 'number') {
+          return "Sorry, I'm only equipped to handle numbers. Try drawStars2 for strings."
+        }
+      }
+      for (let i = 0; i < arr.length; i += 1) {
+        console.log(starString(arr[i]));
+      }
+    }
+
+    function drawStars2(arr) {    // same as drawStars, but strings output as lowercase first letter.
+      for (let i = 0; i < arr.length; i += 1) {
+        if (typeof arr[i] === 'number') {
+          console.log(starString(arr[i]));
+        } else if (typeof arr[i] === 'string') {
+          let output = '';
+          for (let j = 0; j < arr[i].length; j += 1) {
+            output += arr[i].charAt(0).toLowerCase();
+          }
+          console.log(output);
+        }
+      }
+    }
+  </script>
+</body>
+</html>

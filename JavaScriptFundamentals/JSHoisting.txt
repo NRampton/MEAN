@@ -1,0 +1,19 @@
+1. undefined
+
+2. 'magnet'
+
+3.  'only okay'
+    'only okay'
+
+4.  (syntax error?)
+    'chicken'
+    'half-chicken'
+
+5.  syntax error (on line 1 mean === 'undefined' and can't be invoked)
+
+6.  'undefined'
+    rock
+    r&b
+    disco
+
+7. syntax error (name dojo is not declared)

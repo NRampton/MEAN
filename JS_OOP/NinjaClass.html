@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  function Ninja(name) {
+    // const self = this;
+    this.name = name;
+    this.health = 100;
+    let speed = 3;
+    let strength = 3;
+
+    this.sayName = function() {
+      console.log("My ninja name is " + this.name);
+    }
+
+    this.showStats = function() {
+      console.log(`Name: ${this.name}, Health: ${this.health}, Speed: ${speed}, Strength: ${strength}`)
+    }
+
+    this.eatVeggies = function() {
+      this.health += 10;
+      return this
+    }
+
+    this.getStrength = function() {
+      return strength;
+    }
+
+    this.getSpeed = function() {
+      return speed;
+    }
+  }
+
+  Ninja.prototype.punch = function(ninja2) {
+    if (ninja2.constructor != Ninja) {
+      console.log("In this racist world, a culturally appropriated concept of honor prevents a ninja from hitting a non-ninja.")
+      return
+    }
+    ninja2.health -= 5;
+    console.log (`${this.name} punched ${ninja2.name} and did 5 damage!`)
+  }
+
+  Ninja.prototype.kick = function(ninja2) {
+    if (ninja2.constructor != Ninja) {
+      console.log("In this racist world, a culturally appropriated concept of honor prevents a ninja from hitting a non-ninja.")
+      return
+    }
+    let strength = this.getStrength();
+    ninja2.health -= (15 * strength);
+    console.log(`${this.name} kicked ${ninja2.name} for a whopping ${15 * strength} damage!`)
+  }
+
+  Ninja.prototype.run = function() {
+    console.log(this.getSpeed());
+  }
+</script>
+</body>
+</html>

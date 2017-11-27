@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+let students = [
+  {name: 'Remy', cohort: 'Jan'},
+  {name: 'Genevieve', cohort: 'March'},
+  {name: 'Chuck', cohort: 'Jan'},
+  {name: 'Osmund', cohort: 'June'},
+  {name: 'Nikki', cohort: 'June'},
+  {name: 'Boris', cohort: 'June'}
+];
+
+function printStudents(arr) {
+  for (let i = 0; i < arr.length; i += 1) {
+    console.log('Name: ' + arr[i].name + ', Cohort: ' + arr[i].cohort);
+  }
+}
+
+let users = {
+    employees: [
+        {'first_name':  'Miguel', 'last_name' : 'Jones'},
+        {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+        {'first_name' : 'Nora', 'last_name' : 'Lu'},
+        {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+    ],
+    managers: [
+       {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+       {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+    ]
+ };
+
+function printAll(obj) {
+  console.log('EMPLOYEES');
+  for (let i = 0; i < obj.employees.length; i += 1) {
+    console.log((i + 1) + ' - ' + obj.employees[i].last_name.toUpperCase() + ', ' + obj.employees[i].first_name.toUpperCase() + ' - ' + (obj.employees[i].first_name.length + obj.employees[i].last_name.length));
+  }
+  console.log('MANAGERS');
+  for (let i = 0; i < obj.managers.length; i += 1) {
+    console.log((i + 1) + ' - ' + obj.managers[i].last_name.toUpperCase() + ', ' + obj.managers[i].first_name.toUpperCase() + ' - ' + (obj.managers[i].first_name.length + obj.managers[i].last_name.length));
+  }
+}
+</script>
+</body>
+</html>

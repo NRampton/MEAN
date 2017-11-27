@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="someButton">This is some button.</button>
+  <script>
+  function Outer() {
+        // There is a count variable that is scoped to the function
+    var count = 0;
+        // There is an inner function that increments count and then console.logs it
+    function inner() {
+          // increment count
+      count++
+          // console.log count
+      console.log(count);
+    }
+        // return the inner function! We can return a function!
+    return inner
+  }  </script>
+</body>
+</html>
+
+
+<!-- So in a closure, one function returns an inner function. After the above, calling Outer()
+and setting the result to a variable basically creates a new instance of inner() that we can keep using,
+but don't have direct access to. -->

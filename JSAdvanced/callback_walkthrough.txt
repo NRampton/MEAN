@@ -1,0 +1,88 @@
+The first three blocks of code that are function definitions. Near the bottom, the program invokes requestDataFromDatabase(), the first actual action in the code, so to speak.
+
+Heading up to that function's definition, we first declare the var data and set it equal to the return value of getStuffFromDatabase(), with a function (here called myCallback, but it could just as easily be anonymous) passed in as the 'callback' parameter.
+
+So we go up to getStuffFromDatabase(myCallback). That declares a var data, then uses setTimeout(). This defines an anonymous function that waits 10 seconds, then populates the data variable and runs the callback function with data as its parameter.
+
+Remember that the callback function was myCallback, which was defined under the initial call to getStuffFromDatabase. myCallback puts "Asynchronous" on the console, then prints out the names from data.
+
+As a final note, look at the things that happen before that 10 second timer runs out. "Hello," "I just caught a fly!", and "Synchronous" all happen.
+
+
+//simulated really slow DB call.
+function getStuffFromDatabase(callback){
+  var data;
+  var myTimer = setTimeout(function(){
+    if (typeof(callback) == 'function'){
+      data = [{name:'Todd'},{name:'Michael'},{name:'Portia'}];
+      callback(data);
+    }
+  }, 10000);
+  return data;
+}
+// ************CHANGES HERE **************
+function requestDataFromDatabase(){
+  var data = getStuffFromDatabase(function myCallback(data){ // ooh shiny callback!.. when is it invoked???
+    console.log(data, "ASynchronous");
+    for (var i = 0; i < data.length; i ++){
+      console.log(data[i].name);
+    }
+  });
+  console.log(data, "Synchronous");
+}
+//***************** END CHANGES **********************
+function catchFly(){
+  console.log('I just caught a fly!');
+}
+requestDataFromDatabase();
+// keep running my program!
+console.log('Hello');
+catchFly();
+//etc.
+
+
+<!----------------- ANOTHER EXAMPLE ------------------------>
+
+function getStuffFromDatabase(resolve,reject){
+    var data = "whee"
+    setTimeout(function(){
+      // if (typeof(callback) == 'function'){
+        data = [{name:'Todd'},{name:'Michael'},{name:'Portia'}];
+        resolve(data);
+      // }
+    }, 1000);
+    //reject(); comment this line in and out!
+    // return data;
+}
+function requestDataFromDatabase(){
+  console.log('running');
+  //creates promise
+  var data = new Promise(function(resolve,reject){
+    getStuffFromDatabase(resolve,reject); // kind of like a shiny callback
+  });
+  // if promise is successful (keeps me from putting all the logic in the callback)
+  data.then(function(data){
+    console.log(data, "ASynchronous");
+    for (var i = 0; i < data.length; i ++){
+      console.log(data[i].name);
+    }
+  });
+  data.catch(function(){
+    console.log('failure');
+  })
+  console.log('end');
+}
+requestDataFromDatabase();
+
+
+The heart of this one is the line:
+var data = new Promise(function(resolve, reject) {}). What is this Promise object, and how does it work?
+
+So... requestDataFromDatabase() runs down at the bottom.
+
+Going back up to that function's definition, it console.logs an indication that it's running, then creates a Promise. More specifically, it creates a Promise object and calls it data. That Promise runs the getStuffFromDatabase function.
+NB: note that the new Promise() statement is a constructor. It builds a new Promise. And what it takes in is not a function /invocation./ It's a function definition. So you can just pass new Promise() the function getStuffFromDatabase, WITHOUT INVOKING IT, and it will run fine. It will handle the invocation when it needs it.
+
+NB: When the setTimeout function in getStuffFromDatabase finishes, it doesn't return data, it resolves(data).
+
+Back up in the requestDataFromDatabase function, we see definitions for data.then and data.catch. Both are functions. According to MDN, data.catch() isn't even strictly necessary; the catch() handler function can be passed in as a second parameter to the .then() method.

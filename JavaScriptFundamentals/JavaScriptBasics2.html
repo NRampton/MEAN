@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function magic_multiply(x, y) {
+      if (typeof x === 'number') {
+        if (x === 0 && y === 0) {
+          console.log('All inputs 0');
+        } else if (typeof y === 'string') {
+          console.log('Cannot multiply by a string.');
+        } else console.log(x * y);
+      } else if (typeof x === 'string') {  // x is 'Brendon', y is 4
+        let output = '';
+        for (let i = 1; i <= y; i += 1) {
+          output = output + x;
+        }
+        console.log(output);
+      } else if (x.constructor === Array) {
+        for (let i = 0; i < x.length; i += 1) {
+          x[i] *= y;
+        }
+        console.log(x);
+      } else console.log("Sorry, I'm not quite that magical. Adjust your inputs.")
+    }
+  </script>
+</body>
+</html>
