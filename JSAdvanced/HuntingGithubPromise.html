@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Promise me something</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <button id="getName">Get that name!</button>
+  <div id="container"></div>
+<script>
+  function getData(resolve, failed) {
+    let data = $.get('https://api.github.com/users/NRampton', null, 'json');
+    resolve(data);
+  }
+
+  $(document).ready(function() {
+    $('#getName').on('click', function() {
+      let data = new Promise(getData);
+      data.then(function(data) {
+        let new_el = document.createElement('h2');
+        new_el.innerHTML = data.name;
+        document.getElementById('container').appendChild(new_el);
+      });
+      data.catch(function() {
+        console.log("Nothing came back. Check your url.")
+      })
+    })
+  })
+</script>
+</body>
+</html>

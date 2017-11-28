@@ -12,12 +12,12 @@ As a final note, look at the things that happen before that 10 second timer runs
 //simulated really slow DB call.
 function getStuffFromDatabase(callback){
   var data;
-  var myTimer = setTimeout(function(){
+  (function(){
     if (typeof(callback) == 'function'){
       data = [{name:'Todd'},{name:'Michael'},{name:'Portia'}];
       callback(data);
     }
-  }, 10000);
+  })();
   return data;
 }
 // ************CHANGES HERE **************
@@ -86,3 +86,6 @@ NB: note that the new Promise() statement is a constructor. It builds a new Prom
 NB: When the setTimeout function in getStuffFromDatabase finishes, it doesn't return data, it resolves(data).
 
 Back up in the requestDataFromDatabase function, we see definitions for data.then and data.catch. Both are functions. According to MDN, data.catch() isn't even strictly necessary; the catch() handler function can be passed in as a second parameter to the .then() method.
+
+************************************************************************************************************
+A Promise is an object. That's key. It has several different methods and properties. It runs the function initially invoked, and has a .then method and a .catch method that kick in whenever the resolution of that function comes back.
