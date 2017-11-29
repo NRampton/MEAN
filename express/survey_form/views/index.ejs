@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="wrapper">
+    <form action="/result" id="main_form" method="POST">
+      <label>Your Name: <input type="text" name="name"></label>
+      <label>Dojo Location: <select name="location">
+        <option value="Mountain View">Mountain View</option>
+        <option value="Mountain Dew">Mountain Dew</option>
+        <option value="Volcanic Mountain Achoo">Achoo</option>
+        <option value="The Hall of the Mountain King">Mountain King</option>
+      </select></label>
+      <label>Favorite Language: <select name="language">
+        <option value="Python">Python</option>
+        <option value="JavaScript">JS</option>
+        <option value="AncientSanskript">AncientSanskript</option>
+        <option value="Java">Java</option>
+      </select></label>
+      <textarea name="comment" cols="30" rows="5" placeholder="What's on your mind?"></textarea>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+  <title>Survey results</title>
+</head>
+<body>
+  <div id="wrapper">
+    <h3>Survey Responses:</h3>
+    <div id="categories">
+      <p>Name:</p>
+      <p>Dojo Location:</p>
+      <p>Favorite Language:</p>
+      <p>Comment</p>
+    </div>
+    <div id="responses">
+      <p><%= data.name %></p>
+      <p><%= data.location %></p>
+      <p><%= data.language %></p>
+      <p><%= data.comment %></p>
+    </div>
+  </div>
+</body>
+</html>

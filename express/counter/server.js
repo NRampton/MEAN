@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 
 app.get('/', function(request,response) {
   if (!request.session.hasOwnProperty('count')) {
-    request.session.count = 1;
+    request.session.count = 0;
   }
   request.session.count += 1;
   response.render('index', {count: request.session.count});
