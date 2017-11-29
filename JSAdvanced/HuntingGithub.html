@@ -13,7 +13,7 @@
   <script>
   var button = document.getElementById('getName');
   button.addEventListener('click', function() {
-    $.get('https://api.github.com/users/NRampton', displayName, 'json')
+    $.get('https://api.github.com/users/NRampton', displayName);
   });
 
   function displayName(data) {

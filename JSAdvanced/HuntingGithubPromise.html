@@ -11,14 +11,14 @@
   <button id="getName">Get that name!</button>
   <div id="container"></div>
 <script>
-  function getData(resolve, failed) {
-    let data = $.get('https://api.github.com/users/NRampton', null, 'json');
-    resolve(data);
+  function displayName(resolve, failed) {
+    let datum = $.get('https://api.github.com/users/NRampton');
+    resolve(datum);
   }
 
   $(document).ready(function() {
     $('#getName').on('click', function() {
-      let data = new Promise(getData);
+      let data = new Promise(displayName);
       data.then(function(data) {
         let new_el = document.createElement('h2');
         new_el.innerHTML = data.name;
