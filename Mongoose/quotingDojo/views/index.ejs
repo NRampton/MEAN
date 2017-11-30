@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Enter a quote</title>
+</head>
+<body>
+  <form action="/quotes" method="POST" id="main_form">
+    <textarea name="content" cols="30" rows="5" placeholder="What words of wisdom did you come to share?"></textarea>
+    <p><label>Name: <input type="text" name="name" placeholder="Who said that?"></label></p>
+    <input type="submit" value="Add to the stores of knowledge.">
+  </form>
+  <a href="/quotes"><button>Just take me to the quotes.</button></a>
+</body>
+</html>
