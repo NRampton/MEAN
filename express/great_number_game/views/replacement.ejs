@@ -1,0 +1,8 @@
+<% if (data.feedback === 'low') {%>           <!-- different code blocks for different feedback values -->
+  <h2 id="feedback" class="low"><%= data.guess %> is too LOW.</h2>
+<% } else if (data.feedback === 'high') { %>
+  <h2 id="feedback" class="high"><%= data.guess %> is too HIGH.</h2>
+<% } else if (data.feedback === 'spot_on') { %>
+  <h2 id="feedback" class="spot_on"><%= data.guess %> is spot on!</h2>
+  <form action="/" method="GET"><input type="submit" value="Play again!"></form>
+<% } %>

@@ -1,0 +1,58 @@
+Student creation:
+  db.students.insert({name: "Cathy", home_state: "Maine", lucky_number: 9, birthday: {month: 03, day: 13, year: 1984}})
+  db.students.insert({name: "Carl", home_state: "Arizona", lucky_number: 5, birthday: {month: 11, day: 05, year: 1964}})
+  db.students.insert({name: "Chinua", home_state: "Washington", lucky_number: 1, birthday: {month: 08, day: 20, year: 1976}})
+  db.students.insert({name: "Chrysanthemum", home_state: "California", lucky_number: 30, birthday: {month: 09, day: 7, year: 1993}})
+  db.students.insert({name: "Chip", home_state: "South Dakota", lucky_number: 11, birthday: {month: 01, day: 01, year: 1987}})
+
+Find all students:
+  db.students.find()
+
+Find all students from WA:
+  db.students.find({home_state: "Washington"})
+
+Find all students with lucky number:
+  greater than 3:
+    db.students.find({lucky_number: {$gt: 3}})
+  less than or equal to 10:
+    db.students.find({lucky_number: {$lte: 10}})
+  between 1 and 9, inclusive:
+    db.students.find({$and: [{lucky_number: {$gt:0}},{lucky_number: {$lt: 10}}]})
+
+Add "interests" array to all students:
+  db.students.updateMany({}, {$set: {interests: ['coding', 'brunch', 'MongoDB']}})
+
+Add unique interests to each student:
+  db.students.update({name: "Cathy"},{$push: {interests: "snowboarding"}})
+  db.students.update({name: "Carl"},{$push: {interests: "Go"}})
+  db.students.update({name: "Chinua"},{$push: {interests: "reading"}})
+  db.students.update({name: "Chrysanthemum"},{$push: {interests: "gardening"}})
+  db.students.update({name: "Chip"},{$push: {interests: "soccer"}})
+
+Add then remove "taxes" from someone's list of interests:
+  db.students.update({name: "Chip"},{$push: {interests: "taxes"}})
+  db.students.update({name: "Chip"}, {$pop: {interests: 1}})
+
+Remove student from CA or WA:
+  db.students.remove({home_state: "Washington"})
+
+Remove student by name:
+  db.students.remove({name: "Chip"})
+
+Remove one student whose lucky number is greater than 5:
+  db.students.deleteOne({lucky_number: {$gt: 5}})
+
+Add a "number of belts" field to each student, set it to 0:
+  db.students.updateMany({},{$set: {number_of_belts: 0}})
+
+Increment the number of belts for students in Washington:
+  db.students.updateMany({home_state: "Washington"}, {$inc: {number_of_belts: 1}})
+
+Rename "number of belts" to "belts earned":
+  db.students.updateMany({}, {$rename: {number_of_belts: "belts_earned"}})
+
+Remove the lucky number field:
+  db.students.updateMany({}, {$unset: {lucky_number: ''}})
+
+Add an "updated_on" field and set it to the current date:
+  db.students.updateMany({}, {$currentDate: {updated_on: true}})
