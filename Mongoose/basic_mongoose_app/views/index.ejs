@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/users" method="POST" id="user_form">
+    <p><label>Name: <input type="text" name="username"></label></p>
+    <p><label>Age: <input type="text" name="age"></label></p>
+    <p><input type="submit" value="Submit"></p>
+  </form>
+  <h3>Users:</h3>
+  <% for (let user of users) { %>
+    <p><%= user.name %>, age: <%= user.age  %></p>
+  <% } %>
+</body>
+</html>
