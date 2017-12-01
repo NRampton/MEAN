@@ -1,0 +1,7 @@
+So the point here is setting up a more complicated series of models in Express, with validations and relationships between them.
+The template will also have to be a little more complicated based on what comes back in the JSON result of the query. So we'll have to make that work out once we see what comes back from a joined query.
+What do the models need to look like? No user model--user name will be in the message and the comment models separately. Instead we're looking at one for the messages, one for the comments. The two will be tied together.
+
+So we'll need a rotue for displaying all messages with their associated comments, one for adding a message, one for adding a comment. The forms for the latter two will just be part of the main page.
+
+The form for adding a comment to a message must have the url for that specific message included in its action attribute.

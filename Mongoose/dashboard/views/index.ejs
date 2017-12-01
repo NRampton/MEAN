@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>They're naked!</title>
+</head>
+<body>
+  <h2>Here are some Naked Mole Rats!</h2>
+  <% for (let molerat of molerats) { %>
+    <h4>Name: <a href="/molerats/<%= molerat.id %>"><%= molerat.name %></a></h4>
+    <p>Age: <%= molerat.age %></p>
+    <p>Color: <%= molerat.color %></p>
+    <p>Favorite clothes: <%= molerat.favorite_clothes %></p>
+  <% } %>
+  <form action="/molerats/new" method="POST">
+    <input type="submit" value="Register a new naked mole rat!">
+  </form>
+</body>
+</html>

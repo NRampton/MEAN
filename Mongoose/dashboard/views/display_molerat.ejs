@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= info[0].name %></title>
+</head>
+<body>
+  <h2>Here's the scuttlebutt on <%= info[0].name %> the naked mole rat:</h2>
+  <p>Age: <%= info[0].age %></p>
+  <p>Color: <%= info[0].color %></p>
+  <p>Favorite clothing: <%= info[0].favorite_clothes %></p>
+
+  <h4>Some actions you might take:</h4>
+  <form action="/molerats/edit/<%= info[0].id %>" method="GET">
+    <input type="submit" value="Update the record of <%= info[0].name %> the naked mole rat.">
+  </form>
+  <form action="/molerats/destroy/<%= info[0].id %>" method="POST">
+    <input type="submit" value="Delete the record for <%= info[0].name %>.">
+  </form>
+  <a href="/">Back to the main mole rat page.</a>
+</body>
+</html>
