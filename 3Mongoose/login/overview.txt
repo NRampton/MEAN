@@ -1,0 +1,10 @@
+Routes: 
+  GET to ('/') calls index, shows login and registration page
+  GET to ('/success') calls success, shows a basic successful login page
+
+  POST to ('/register') calls register, validates new user, redirects to /success
+  POST to ('/login') calls login, validates credentials, redirects to /success
+
+Templates:
+  index.ejs
+  success.ejs
