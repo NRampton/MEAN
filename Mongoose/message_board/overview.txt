@@ -5,3 +5,8 @@ What do the models need to look like? No user model--user name will be in the me
 So we'll need a rotue for displaying all messages with their associated comments, one for adding a message, one for adding a comment. The forms for the latter two will just be part of the main page.
 
 The form for adding a comment to a message must have the url for that specific message included in its action attribute.
+
+Okay, so here's the problem now. If error messages come back when we try to save the new entry, where do we put them?
+  We could use session, I guess, to store the errors, but then how do we clear them when we're done? That's one of the things flash messages in Flask did well: clean up after themselves.
+  An alternative is to have this route render index.ejs again, passing in a full query of the messages as well as the errors. But it feels like there has to be a way that doesn't involve a page load, and having multiple routes render the same template feels inelegant.
+  But if we just have the error callback redirect back to the main page, we're only console.logging the errors, not providing them to the user. That may be the best we can do at this point.
