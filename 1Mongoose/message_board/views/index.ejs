@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Message Board</title>
+</head>
+<body>
+  <h2>The Message Board</h2>
+  <hr>
+  <form action="/new_message" method="POST" id="new_message">
+    <p><label>Name: </p>
+    <p><input type="text" name="name"></label></p>
+    <p>Message:</p>
+    <textarea name="content" cols="70" rows="3"></textarea>
+    <input type="submit" value="Post message">
+  </form>
+  <% for (message of messages) { %>
+    <hr>
+    <h4>Name: <%= message.name %></h4>
+    <h3>Message: <%= message.content %></h3>
+    <% if (message.comments.length != 0) { %>
+      <% for (comment of message.comments) { %>
+        <h6>Name: <%= comment.name %></h6>
+        <h6>Comment: <%= comment.content %></h6>
+      <% } %>
+    <% } %>
+    <form action="/new_comment" method="POST" class="new_comment">
+      <input type="hidden" name="message_id" value="<%= message._id %>">
+      <p><label>Name: </p>
+      <p><input type="text" name="name"></label></p>
+      <p>Comment:</p>
+      <textarea name="content" cols="50" rows="2"></textarea>
+      <input type="submit" value="Post comment">
+    </form>
+  <% } %>
+</body>
+</html>
