@@ -15,7 +15,8 @@
         <p><label>Email: <input name="email" type="text"></label></p>
         <p><label>Password: <input name="password" type="password"></label></p>
         <p><label>Confirm password: <input name="confirm_password" type="password"></label></p>
-        <p><label>Birthdate: <input name="birthdate" type="date"></label></p>
+        <p><label>Birthdate: <input name="birthdate" type="date" min="2003-12-04></label></p>
+        <p class="hint">Note: You must be at least fourteen to register.</p>
         <p><input type="submit" value="Register"></p>
       </form>
     </div>
@@ -26,6 +27,9 @@
         <p><input type="submit" value="Login"></p>
       </form>
     </div>
+    <% if (typeof(errors) != 'undefined')  %>
+      <% for (let error of errors) { %>
+        <h4><%= error.message %></h4>
   </div>
 </body>
 </html>
