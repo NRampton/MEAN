@@ -27,7 +27,7 @@
         <p><input type="submit" value="Login"></p>
       </form>
     </div>
-    <% if (typeof(errors) != 'undefined')  %>
+    <% if(typeof(errors) != 'undefined') %>
       <% for (let error of errors) { %>
         <h4><%= error.message %></h4>
   </div>

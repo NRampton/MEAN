@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const User = mongoose.model('User');
+var User = mongoose.model('User');
 var users = require('../controllers/users.js');
 
 module.exports = (app) => {

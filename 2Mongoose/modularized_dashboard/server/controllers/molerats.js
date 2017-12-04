@@ -10,6 +10,7 @@ module.exports = {
       }
       return res.render('index', {molerats});
     })
+    console.log(MoleRat);
   },
   show: (req, res) => {
     MoleRat.find({_id: req.params.id}, (err, info) => {

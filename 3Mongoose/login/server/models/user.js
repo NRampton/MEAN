@@ -11,9 +11,8 @@ const UserSchema = new mongoose.Schema({
   birthday: { type: String, required: true},
 }, {timestamps: true});
 
-const User = mongoose.Schema('User', UserSchema);
 
-User.methods.encryptPassword = (input) => {
+UserSchema.methods.encryptPassword = (input) => {
   bcrypt.hash('input', 10)
   .then(hashed_password => {
     return hashed_password;
@@ -23,7 +22,9 @@ User.methods.encryptPassword = (input) => {
   })
 }
 
-User.pre('save', (done) => {
+UserSchema.pre('save', (done) => {
   this.password = this.encryptPassword(this.password);
   done();
 });
+
+module.exports = mongoose.model('User', UserSchema);

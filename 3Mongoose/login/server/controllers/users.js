@@ -1,5 +1,5 @@
 const mongoose = ('mongoose');
-const User = mongoose.model('User');
+var User = mongoose.model('User');
 const bcrypt = require('bcrypt-as-promised');
 
 module.exports = {
