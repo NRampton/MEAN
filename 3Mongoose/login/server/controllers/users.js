@@ -1,20 +1,32 @@
-const mongoose = ('mongoose');
+const mongoose = require('mongoose');
 var User = mongoose.model('User');
-const bcrypt = require('bcrypt-as-promised');
+const bcrypt = require('bcrypt');
 
 module.exports = {
   index: (req, res) => {
-    return res.render('index');
+    if (req.session.errors) {
+      var errors = [];
+      for (let error in req.session.errors.errors) {
+        errors.push(req.session.errors.errors[error].message);
+      }
+      errors = errors.reverse();
+      console.log(errors);
+      req.session.destroy();
+    }
+    return res.render('index', {errors});
   },
 
   register: (req, res) => {
     let body = req.body;
+    if (body.password != body.confirm_password) { 
+
+    }
     let newUser = new User(body);
     newUser.save((err) => {
       if (err) {
-        console.log(err);
-        console.log("There were a few hiccups");
-        return res.render('index', {errors: newUser.errors});
+        req.session.errors = err;
+        console.log(req.session.errors);
+        return res.redirect('/');
       }
       return res.redirect('/success');
     })
@@ -24,16 +36,20 @@ module.exports = {
     let body = req.body;
     let user = User.find({email: body.email}, (err, user) => {
       if (err) {
-        return res.render('index', {errors: user.errors});
+        req.session.errors = err;
+        return res.redirect('/');
       }
-      bcrypt.compare(body.password, user.password)
-      .then(() =>{
+      if(user.methods.match(req.body.password, user.password)) {
         return res.redirect('/success');
-      })
+      } else {
+        req.session.errors.errors = "Those credentials don't match our database, I'm afraid." 
+        return res.redirect('/');
+      }
+
     })
   },
 
-  success: (res, req) => {
-    return res.render('success', {user: user});
+  success: (req, res) => {
+    return res.render('success');
   }
 }
