@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.colorbox {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border: 1px dashed orange;
+
+}
+
+#wrapper {
+  width: 80%;
+  margin: 20px auto;
+}
