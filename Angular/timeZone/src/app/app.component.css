@@ -1,0 +1,28 @@
+* {
+  /* outline: 1px solid green; */
+}
+
+button {
+  font-size: 1.3em;
+  padding: 10px;
+  margin-left: 49px;
+  display: inline-flex;
+}
+
+h1 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.clicked {
+  background-color: yellow;
+}
+
+#wrapper {
+  width: 50%;
+  margin: 10% auto;
+}

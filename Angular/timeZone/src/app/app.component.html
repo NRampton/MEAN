@@ -1,0 +1,9 @@
+<div id="wrapper">
+  <h1>US Time Zone Display</h1>
+  <button (click)="onTZButtonClick(0)" [ngClass]="{ 'clicked': zoneFlags[0] }" class="timeZone">PST</button>
+  <button (click)="onTZButtonClick(1)" [ngClass]="{ 'clicked': zoneFlags[1] }" class="timeZone">MST</button>
+  <button (click)="onTZButtonClick(2)" [ngClass]="{ 'clicked': zoneFlags[2] }" class="timeZone">CST</button>
+  <button (click)="onTZButtonClick(3)" [ngClass]="{ 'clicked': zoneFlags[3] }" class="timeZone">EST</button>
+  <button (click)="onClearButtonClick()" class="clear">Clear</button>
+  <h3>Time: {{ today | date:'medium' }}</h3>
+</div>
