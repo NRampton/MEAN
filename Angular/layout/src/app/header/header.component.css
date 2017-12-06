@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#headwrapper {
+  width: 96%;
+  background-color: rgb(162, 160, 245);
+  height: 100%;
+  padding: 20px;
+}
+
+h1 {
+  width: 100%
+}
