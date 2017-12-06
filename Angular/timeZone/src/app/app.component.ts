@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
-var today;
+var today = new Date();
 var zoneFlags: Array<boolean> = [false, false, false, false];
+var tzone = 'EST';
 
 @Component({
   selector: 'app-root',
@@ -9,22 +10,40 @@ var zoneFlags: Array<boolean> = [false, false, false, false];
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  zoneFlags = zoneFlags;
-  onTZButtonClick(i): void {
-    for (let x in zoneFlags) {
-      zoneFlags[x] = false;
+  today = new Date();
+  lastTimeZoneSelected = null;
+
+  onTZButtonClick(timezone) {
+    this.today = new Date();
+    if (timezone === 'MST') {
+      this.today.setHours(this.today.getHours() -2);
+    } else if (timezone === 'CST') {
+      this.today.setHours(this.today.getHours() - 1);
+    } else if (timezone === 'PST') {
+      this.today.setHours(this.today.getHours() - 3);      
     }
-    let offset = 3 - i;
-    zoneFlags[i] = true;
-    today = new Date();
-    today.setHours(today.getHours() - offset);
+    this.lastTimeZoneSelected = timezone;
+    console.log(this.lastTimeZoneSelected);
   }
+
+//   zoneFlags = zoneFlags;
+//   today = today;
+//   tzone = tzone;
+//   onTZButtonClick(i): void {
+//     for (let x in zoneFlags) {
+//       zoneFlags[x] = false;
+//     }
+//     zoneFlags[i] = true;
+//     if(i===0) {tzone='PST';} 
+//     else if(i===1) {tzone = 'MST';}
+//     else if(i===2) {tzone = 'CST';}
+//     else {tzone = 'EST';}
+//     console.log(tzone);
+//   }
   
-  onClearButtonClick(): void {
-    for (let x in zoneFlags) {
-      zoneFlags[x] = false;
-    }
-    today = undefined;
-  }
-  today = today;
+//   onClearButtonClick(): void {
+//     for (let x in zoneFlags) {
+//       zoneFlags[x] = false;
+//     }
+//   }
 }
