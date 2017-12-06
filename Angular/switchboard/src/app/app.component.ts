@@ -9,10 +9,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   switchState: Array<boolean> = [false, false, false, false, false, false, false, false, false, false];
   buttonClick(idx) {
-    if (this.switchState[idx]) {
-      this.switchState[idx] = false;
+    this.switchState[idx] = !this.switchState[idx];
+    if(idx === 0) {
+      this.switchState[1] = !this.switchState[1];
+    } else if (idx === 9) {
+      this.switchState[8] = !this.switchState[8];     
     } else {
-      this.switchState[idx] = true;
+      this.switchState[idx-1] = !this.switchState[idx-1];
+      this.switchState[idx+1] = !this.switchState[idx+1];     
     }
   }
 }

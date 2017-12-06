@@ -23,7 +23,6 @@ export class AppComponent {
       this.today.setHours(this.today.getHours() - 3);      
     }
     this.lastTimeZoneSelected = timezone;
-    console.log(this.lastTimeZoneSelected);
   }
 
 //   zoneFlags = zoneFlags;
