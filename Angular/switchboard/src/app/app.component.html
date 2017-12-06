@@ -1,0 +1,9 @@
+<div id="wrapper">
+  <h1>Switchboard</h1>
+  <div class="switchSurround" *ngFor="let switch of switchState; let idx = index">
+    <div class="switch" (click)="buttonClick(idx)" [ngClass]="{ 'on': switchState[idx] }">
+      <span *ngIf="switchState[idx]">On</span>
+      <span *ngIf="!switchState[idx]">Off</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+h1 {
+  text-align: center;
+}
+
+#wrapper {
+  width: 80%;
+  margin: 10% auto;
+}
+
+.switchSurround {
+  background-color: saddlebrown;
+  height: 80px;
+  width: 80px;
+  display: inline-block;
+  margin-left: 18px;
+  border: 1px solid black;
+}
+
+.switch {
+  background-color: red;
+  color: white;
+  height: 60px;
+  width: 60px;
+  margin: 10px auto;
+  text-align: center;
+  line-height: 3.5em;
+  border: 1px solid black;
+}
+
+.on {
+  background-color: green;
+}
