@@ -7,9 +7,9 @@ import { PowerLevel } from './power-level'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  multipliers = [ [1, 'Human'], [10, 'Saiyan'], [90, 'SuperSaiyan'], [150, 'SuperSaiyanTWo'], [250, 'SuperSaiyanThree'], [500, 'SuperSaiyanFour'] ];
-  level = new PowerLevel();
-  updateLevel(event) {
-    console.log(event);
+  multipliers = [ [1, 'Human'], [10, 'Saiyan'], [90, 'SuperSaiyan'], [150, 'SuperSaiyanTwo'], [250, 'SuperSaiyanThree'], [500, 'SuperSaiyanFour'] ];
+  level: number =1;
+  updateLevel(newLevel) {
+    this.level = newLevel.powerLevel;
   }
 }

@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+app-form {
+  height: 150px;
+}
+
+fieldset {
+  height: 100%;
+}
+
+.componentcontainer {
+  width: 30%;
+  height: 150px;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 20px;
+}

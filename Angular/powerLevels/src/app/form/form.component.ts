@@ -7,10 +7,10 @@ import { PowerLevel} from '../power-level'
 })
 export class FormComponent implements OnInit {
   @Output() formEventEmitter = new EventEmitter();
+  level = new PowerLevel();
   constructor() { }
-  triggerEvent(event) {
-    this.formEventEmitter.emit(event);
-    console.log(event);
+  triggerEvent() {
+    this.formEventEmitter.emit(this.level);
   }
   ngOnInit() {
   }
