@@ -5,11 +5,12 @@
   #content='ngModel' cols="30" rows="4"
   required
   minlength="4"></textarea><span *ngIf="content.errors">Please provide a quotation that's at least four letters long.</span>
-  <label>Author: <input 
+  <p><label>Author: <input 
     type="text" 
-    name="source" 
+    name="source"
+    required 
     [(ngModel)]="quotation.source" 
-    #source='ngModel'></label><span *ngIf="source.errors">Please provide a source for your quotation.</span>
+    #source='ngModel'></label><span *ngIf="source.errors">Please provide a source for your quotation.</span></p>
   <input *ngIf="!formData.errors" type="submit" value="Add Quote">
   <input *ngIf="formData.errors" type="submit" value="Not quite ready for submission yet." disabled="disabled">
 </form>

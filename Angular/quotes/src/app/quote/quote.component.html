@@ -1,2 +1,9 @@
-
-<app-ballot (upVoteEmitter)="" (downVoteEmitter)="" (deleteEmitter)=""></app-ballot>
+<div id="wrapper">
+  <div class="contentcontainer">
+    <p>{{ quote.content }}</p>
+    <p>{{ quote.source }}</p>
+  </div>
+  <div class="scorecontainer" *ngIf="quote.score > 0"><h2>+{{ quote.score }}</h2></div>
+  <div class="scorecontainer" *ngIf="quote.score <= 0"><h2>{{ quote.score }}</h2></div>
+  <app-ballot (upVoteEmitter)="upVote()" (downVoteEmitter)="downVote()" (deleteEmitter)="delete()"></app-ballot>
+</div>

@@ -1,0 +1,9 @@
+#mainwrapper {
+  width: 75%;
+  margin: 30px auto;
+}
+
+.quotecontainer {
+  border: 1px solid silver;
+  padding-left: 20px;
+}

@@ -1,0 +1,17 @@
+button {
+  padding: 5px;
+  display: block;
+  margin-top: 10px;
+}
+
+.upvote {
+  background-color: lightseagreen;
+}
+
+.downvote {
+  background-color: salmon;
+}
+
+.delete {
+  background-color: grey
+}

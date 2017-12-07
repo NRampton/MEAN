@@ -9,7 +9,7 @@ export class DisplayComponent implements OnInit {
   @Input() myMult: number;
   @Input() level: number;
   constructor() { }
-
+  
   ngOnInit() {
   }
 

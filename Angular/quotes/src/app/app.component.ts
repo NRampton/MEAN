@@ -10,4 +10,10 @@ export class AppComponent {
   pushNewQuote(quotation){
     this.quotes.push(quotation);
   }
+  deleteQuote(index): void {
+    this.quotes.splice(index, 1);
+  }
+  reorderQuotes(): void {
+    this.quotes.sort((a,b) => {return b.score - a.score})
+  }
 }

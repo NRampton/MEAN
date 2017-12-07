@@ -1,0 +1,22 @@
+h2 {
+  text-align: center;
+  line-height: 4.0em;
+}
+
+.contentcontainer {
+  display: inline-block;
+  vertical-align: top;
+  width: 40%;
+}
+
+.scorecontainer {
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+}
+
+app-ballot {
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+}
