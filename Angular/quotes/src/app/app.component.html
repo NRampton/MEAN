@@ -2,6 +2,6 @@
   <h1>Add a Quote</h1>
   <app-quote-form (formSubmissionEmitter)="pushNewQuote($event)"></app-quote-form>
   <div *ngFor="let quote of quotes; let idx = index" class="quotecontainer">
-    <app-quote [quoteIdx]="idx" [quote]="quote" (reorderEmitter)="reorderQuotes()"  (deleteEmitter)="deleteQuote($event)"></app-quote>
+    <app-quote [quoteIdx]="idx" [quote]="quote" (reorderEmitter)="reorderQuotes()" (deleteEmitter)="deleteQuote($event)"></app-quote>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NumbersService } from '../numbers.service'
 
 @Component({
   selector: 'app-gamma',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gamma.component.css']
 })
 export class GammaComponent implements OnInit {
+  diffLog: Array<number> = [];
+  constructor(public _numbersService: NumbersService) { }
 
-  constructor() { }
+  diff() {
+    this.diffLog.push((this._numbersService.alphaSum)- (this._numbersService.betaSum));
+  }
 
   ngOnInit() {
   }

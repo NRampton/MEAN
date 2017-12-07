@@ -1,3 +1,6 @@
-<p>
-  gamma works!
-</p>
+<button (click)="diff()">Generate Difference</button>
+<ul>
+  <li *ngFor="let number of diffLog">
+    {{ number }}
+  </li>
+</ul>
