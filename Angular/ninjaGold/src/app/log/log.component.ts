@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoldService } from '../gold.service'
 
 @Component({
   selector: 'app-log',
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./log.component.css']
 })
 export class LogComponent implements OnInit {
-
-  constructor() { }
+  log = this._goldService.log;
+  constructor(public _goldService: GoldService) { }
 
   ngOnInit() {
   }

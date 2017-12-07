@@ -1,3 +1,8 @@
-<p>
-  buildings works!
-</p>
+<div id="row">
+  <div *ngFor="let building of buildingData; let idx = index" class="building">
+    <h3>{{ building[0] }}</h3>
+    <p><button (click)="visit(idx)">{{ building[0] }}!</button></p>       <!--Click function passes along the index of the buildings array that got clicked. -->
+    <p *ngIf="idx != 2">Gain {{ buildingData[idx][1] }} to {{ buildingData[idx][2] }} gold.</p>
+    <p *ngIf="idx === 2">Gain or lose up to 100 gold.</p>
+  </div>
+</div>

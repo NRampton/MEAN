@@ -1,3 +1,7 @@
-<p>
-  log works!
-</p>
+<div id="logwrapper">
+  <ul>
+    <li *ngFor="let entry of log">
+      {{ entry }}
+    </li>
+  </ul>
+</div>

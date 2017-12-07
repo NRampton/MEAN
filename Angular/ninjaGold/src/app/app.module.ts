@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { GoldService } from './gold.service';
 
 
 import { AppComponent } from './app.component';
@@ -16,7 +17,7 @@ import { LogComponent } from './log/log.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [GoldService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
