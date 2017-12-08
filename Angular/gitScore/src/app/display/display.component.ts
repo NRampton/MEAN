@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { GithubService } from '../github.service';
 
 @Component({
   selector: 'app-display',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit {
+  @Input() data;  
+  @Input() err: boolean = false;
 
-  constructor() { }
+  constructor(private _githubService: GithubService) { }
 
   ngOnInit() {
   }
-
 }

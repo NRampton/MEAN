@@ -1,3 +1,9 @@
-<p>
-  form works!
-</p>
+<form #formData='ngForm' (submit)="submitForm()">
+  <p><label>GitHub Username: <input 
+                                [(ngModel)]="username" 
+                                type="text"
+                                required 
+                                name="username"></label></p>
+  <p><input *ngIf="formData.errors" type="submit" value="Calculate My GitHub Score" disabled="disabled"></p>
+  <p><input *ngIf="!formData.errors" type="submit" value="Calculate My GitHub Score"></p> 
+</form>

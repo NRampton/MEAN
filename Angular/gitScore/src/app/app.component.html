@@ -1,2 +1,4 @@
-<app-form></app-form>
-<app-display></app-display>
+<h1>Github Score!</h1>
+<h4>Let's evaluate ourselves.</h4>
+<app-form (formEmitter)="clicked($event)" (errorEmitter)="catchError($event)"></app-form>
+<app-display [data]="data" [err]="err"></app-display>

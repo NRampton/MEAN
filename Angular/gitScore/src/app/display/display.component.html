@@ -1,3 +1,11 @@
-<p>
-  display works!
-</p>
+<div *ngIf="err">
+  <h3 class="error">Username not found.</h3>
+</div>
+<div *ngIf="data">
+  <h2>Your score is {{ data.public_repos + data.followers }}</h2>
+  <h2 *ngIf="( data.public_repos + data.followers ) < 20" class="red">Needs Work!</h2>
+  <h2 *ngIf="( data.public_repos + data.followers ) >= 20 && ( data.public_repos + data.followers ) < 50" class="orange">A decent start!</h2>
+  <h2 *ngIf="( data.public_repos + data.followers ) >= 50 && ( data.public_repos + data.followers ) < 100" class="black">Doing well!</h2>
+  <h2 *ngIf="( data.public_repos + data.followers ) >= 100 && ( data.public_repos + data.followers ) < 200" class="green">Great job!</h2>
+  <h2 *ngIf="( data.public_repos + data.followers ) > 200" class="blue">GitHub Elite!</h2>
+</div>
