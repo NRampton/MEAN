@@ -8,7 +8,7 @@ import { GoldService} from './gold.service';
 })
 export class AppComponent {
   constructor(public _goldService: GoldService) { }
-  buildingData = [ ['Farm', 2, 5], ['Cave', 5, 10], ['Casino', -100, 100], ['House', 7, 15] ];
+  buildingData = [ ['Farm', 2, 5], ['Cave', 5, 10], ['Casino', -100, 100], ['House', 7, 15] ];  
   goldTotal = this._goldService.goldTotal;
   update() {
     this.goldTotal = this._goldService.goldTotal;
