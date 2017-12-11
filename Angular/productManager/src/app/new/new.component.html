@@ -1,0 +1,26 @@
+<h2>Create a New Product</h2>
+<form #formData='ngForm' (submit)="submitHander()">
+  <p><label>Title: <input 
+                      type="text" 
+                      name="title"
+                      required
+                      #title = 'ngModel'
+                      [(ngModel)]="product.title"
+                      minlength="4"></label>
+    <span class="error_message" *ngIf="title.errors">Please supply a product title of at least four letters.</span>
+  </p>
+  <p><label>Price: <input 
+                      type="text" 
+                      name="price"
+                      required
+                      #price = 'ngModel'
+                      [(ngModel)]="product.price"></label>
+    <span class="error_message" *ngIf="price.errors">Please provide a price for this product.</span>
+  </p>
+  <p><label>Image URL (optional): <input 
+                      type="text" 
+                      name="imageUrl"
+                      [(ngModel)]="product.imageUrl"></label></p>
+  <p *ngIf="formData.errors"><input type="submit" value="Create" disabled="disabled"></p>
+  <p *ngIf="!formData.errors"><input type="submit" value="Create"></p>  
+</form>

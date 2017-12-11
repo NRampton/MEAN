@@ -1,0 +1,9 @@
+<div class="product_display" *ngFor="let product of products">
+  <p>Product ID: {{ product.id }}</p>
+  <p>Title: {{ product.title }}</p>
+  <p>Price: {{ product.price | currency }}</p>
+  <img *ngIf="product.imageUrl != ''" src="/assets/images/{{product.imageUrl}}"/>
+  <img *ngIf="product.imageUrl === ''" src="/assets/images/null.jpg" alt="Image not provided."/>
+  <a routerLink="/products/edit/:{{product.id}}"><button>Edit</button></a>
+  <button (click)="delete(product.id)">Delete</button>
+</div>
