@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { StaticProvider } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -14,6 +16,7 @@ import { TulsaComponent } from './tulsa/tulsa.component';
 
 import { WeatherService } from './weather.service';
 import { LandingComponent } from './landing/landing.component';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -30,7 +33,9 @@ import { LandingComponent } from './landing/landing.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    HttpModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]

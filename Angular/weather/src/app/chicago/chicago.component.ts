@@ -14,14 +14,13 @@ export class ChicagoComponent implements OnInit {
 
   ngOnInit() {
     this._ws.getData(this.zip).subscribe(
-      res => this.data = res,
+      res => { this.data = res; 
+        this.data.main.temp_max = Math.round(this.data.main.temp_max * 9 / 5 - 460);
+        this.data.main.temp_min = Math.round(this.data.main.temp_min * 9 / 5 - 460);
+        this.data.main.temp = Math.round(this.data.main.temp * 9 / 5 - 460);
+      },
       err => console.error(err),
       () => console.log("All finished! Anything else?")
     );
-    this.data.high = this.data.main.temp_max;
-    this.data.high = (this.data.high-273) * 1.8 + 32;
-    this.data.low = this.data.main.temp_min;
-    this.data.low = (this.data.low-273) * 1.8 + 32;
   }
-
 }

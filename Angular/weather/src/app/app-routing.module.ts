@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'seattle', component: SeattleComponent},
   { path: 'tulsa', component: TulsaComponent},
   { path: 'washington', component: WashingtonComponent},
-  { path: '', pathMatch: 'full', component: LandingComponent},
+  { path: '', pathMatch: 'full', redirectTo: '/washington'},
 ];
 
 @NgModule({

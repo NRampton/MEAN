@@ -1,10 +1,11 @@
 <div class="wrapper">
-  <h2>{{ data.name }}</h2>
+  <h2>Seattle, WA</h2>
   <div class="datawrapper">
     <p>Humidity: {{ data.main.humidity }}</p>
-    <p>Temperature (average): {{   }}</p>
-    <p>Temperature (high): {{ data.high }}</p>
-    <p>Temperature (low): {{ data.low  }}</p>
+    <p>Temperature (average): {{ data.main.temp }}</p>
+    <p>Temperature (high): {{ data.main.temp_max }}</p>
+    <p>Temperature (low): {{ data.main.temp_min }}</p>
     <p>Status: {{ data.weather[0].description }}</p>
   </div>
+  <img src="/assets/images/seattle.jpeg" alt="Seattle" class="location_pic">  
 </div>
