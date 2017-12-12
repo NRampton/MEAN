@@ -1,3 +1,21 @@
-<p>
-  edit works!
-</p>
+<form (submit)="update()">
+  <p><label>Title: <input 
+                      type="text" 
+                      name="title"
+                      required
+                      minlength="4"
+                      [(ngModel)]="product.title"
+                      ></label></p>
+  <p><label>Price: <input 
+                      type="text" 
+                      name="price"
+                      required
+                      [(ngModel)]="product.price"
+                      ></label></p>
+  <p><label>Image URL (optional): <input 
+                        type="text" 
+                        name="imageUrl"
+                        [(ngModel)]="product.imageUrl"
+                        ></label></p>
+  <p><input type="submit" value="Submit changes"></p>
+</form>
