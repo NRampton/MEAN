@@ -6,6 +6,7 @@ const path = require('path');
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/angular-app/dist'));
 
 app.set('views', path.join(__dirname, './client/views'));
 app.set('view engine', 'ejs');
