@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const fs = require('fs');
 
-mongoose.connect('mongodb://localhost/notes', {useMongoClient: true});
+mongoose.connect('mongodb://localhost/notes', {useMongoClient: true}, () => console.log('Connected to notes. Well done.'));
 mongoose.Promise = global.Promise;
 
 const models_path = __dirname + '/../models';

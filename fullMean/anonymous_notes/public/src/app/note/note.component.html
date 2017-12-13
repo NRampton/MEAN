@@ -1,2 +1,2 @@
-<app-note-new></app-note-new>
-<app-note-list></app-note-list>
+<app-note-new (createNoteEvent)="getNotes()"></app-note-new>
+<app-note-list [notes]="notes"></app-note-list>
