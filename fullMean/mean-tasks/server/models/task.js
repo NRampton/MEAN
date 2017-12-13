@@ -10,10 +10,10 @@ const TaskSchema = new mongoose.Schema({
     name: {
       type: String,
       required: [true, 'Please provide a name.']
+    },
+    status: {
+      type: Boolean
     }
-  },
-  status: {
-    type: Boolean
   }
 }, {timestamps: true})
 

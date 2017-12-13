@@ -19,12 +19,34 @@ module.exports = {
     })    
   },
   create(req, res) {
-    res.json(true);    
+    const task = new Task(req.body);
+    task.save((err) => {
+      if (err) {
+        return res.status(401).json(err);
+      }
+      return res.status(201).json(true);
+    })
+    res.json(task);    
   },
   update(req, res) {
-    res.json(true);    
+    const _id = req.params.id;
+    Task.update({_id: _id}, req.body, { new: true }, (err, task) => {
+      if (err) {
+        return res.status(404).json(err);
+      }
+      return res.json(task);
+    })    
   },
   destroy(req, res) {
-    res.json(true);    
+    const _id = req.params.id;
+    Task.remove({_id}, (err, task) => {
+      if (err) {
+        return res.status(404).json(err);
+      }
+      return res.json(task);
+    })
+  },
+  destroyAll(req, res) {
+    Task.remove
   }
 }
