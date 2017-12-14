@@ -13,6 +13,8 @@ import { DisplayUserComponent } from './battle/display-user/display-user.compone
 import { ResultsComponent } from './battle/results/results.component';
 
 import { UserService } from './user.service';
+import { LeftComponent } from './battle/left/left.component';
+import { RightComponent } from './battle/right/right.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { UserService } from './user.service';
     RankingComponent,
     FormComponent,
     DisplayUserComponent,
-    ResultsComponent
+    ResultsComponent,
+    LeftComponent,
+    RightComponent
   ],
   imports: [
     BrowserModule,

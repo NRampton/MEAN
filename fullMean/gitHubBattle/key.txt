@@ -1,2 +1,9 @@
 GitHub API key:
 f19bf9dbfefba1a9765ce3ea46624d5c47a11a7c
+
+How are we going to set this up. We esentially need two identical router-outlet tags in the same component, right? But that won't work, will it?
+
+We have a left and a right component nested inside the battle component. These each have a router-outlet and basically nothing else. These intermediary components seem necessary because we can't have sibling router-outlet tags in one page. How would Angular know which one to put a given component in?
+  The trick is that there won't be a route to get to either right or left, and those are the ones we want to set up as parents of the form, display, and results components. So how does that routing work?
+
+Two sibling router-outlets on one page if both are loading the same component initially?

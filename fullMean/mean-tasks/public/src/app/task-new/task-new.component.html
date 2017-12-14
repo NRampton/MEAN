@@ -1,0 +1,34 @@
+<div>
+  <h3>Make a New Task</h3>
+  <form (submit)="createTask()" #myForm='ngForm'>
+    <div class="input-area">
+      <div class="input">
+        <label>Content: <input 
+          type="text" 
+          name="content"
+          required
+          minlength="10" 
+          #content="ngModel" 
+          [(ngModel)]="task.content"
+        ></label>
+        <label>Assignee: <input 
+          type="text" 
+          name="assignee"
+          #assignee="ngModel" 
+          required
+          minlength="4"
+          [(ngModel)]="task.assignee"
+        ></label>
+        <label>Status: <input 
+          type="checkbox" 
+          name="status" 
+          [(ngModel)]="task.status"
+        ></label>
+        <button [disabled]="myForm.invalid" type="submit">Create</button>
+      </div>
+      <div class="input-error">
+
+      </div>
+    </div>
+  </form>
+</div>
