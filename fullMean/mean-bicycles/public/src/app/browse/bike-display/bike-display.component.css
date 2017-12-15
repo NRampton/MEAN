@@ -1,0 +1,13 @@
+.center, .right {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.right {
+  text-align: right;
+  margin-left: 30px;
+}
+
+.center {
+  margin-left: 30px;
+}

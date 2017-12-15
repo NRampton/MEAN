@@ -1,3 +1,10 @@
-<p>
-  bike-display works!
-</p>
+<img src="{{bike.imageUrl}}" alt="A bike!">
+<div class="center">
+  <h2>{{ bike.title }}</h2>
+  <p>{{ bike.description }}</p>
+</div>
+<div class="right">
+  <h2>{{ bike.price | currency }}</h2>
+  <p>{{ bike.location }}</p>
+</div>
+  

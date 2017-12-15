@@ -1,0 +1,4 @@
+.form_left, .form_center, .form_right {
+  display: inline-block;
+  vertical-align: top;
+}

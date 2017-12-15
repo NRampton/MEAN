@@ -1,3 +1,51 @@
-<p>
-  create works!
-</p>
+<form #formData="ngForm" (submit)="onSubmit(bike)">
+  <div class="form_left">
+    <p>Image Upload</p>
+    <div *ngIf="!gotbike">
+      <form (submit)="imageSubmit(Url)">
+        <input placeholder="image URL" type="text" name="Url" [(ngModel)]="Url"><input type="submit" value="Go!">
+      </form>
+    </div>
+    <img *ngIf="gotbike" src="{{ bike.imageUrl }}" alt="That URL didn't work, but hey, here we are.">
+  </div>
+  <div class="form_center">
+    <label>Title: <br>
+    <input 
+      type="text"
+      name="title"
+      [(ngModel)]="bike.title"
+      required
+      >
+    </label><br>
+    <label>Description: <br><textarea 
+      name="description" 
+      cols="30" 
+      rows="3" 
+      placeholder="Bike description"
+      required
+      maxlength="200"
+      [(ngModel)]="bike.description"
+      >
+    </textarea></label>    
+  </div>
+  <div class="form_right">
+    <label>Price: <br>
+      <input 
+      required
+      min="1"
+      type="text" 
+      name="price"
+      [(ngModel)]="bike.price"
+      >
+    </label><br>
+    <label>location: <br>
+      <input 
+        type="text"
+        name="location"
+        [(ngModel)]="bike.location"
+        required
+        >
+      </label><br>
+      <button [disabled]="!formData.valid || !gotbike" type="submit">Create!</button>
+  </div>
+</form>

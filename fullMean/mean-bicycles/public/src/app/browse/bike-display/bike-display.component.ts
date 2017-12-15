@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { BikeService } from '../../bike.service';
+import { UserService } from '../../user.service';
+import { Bike } from '../../bike';
+import { User } from '../../user';
 
 @Component({
   selector: 'app-bike-display',
@@ -7,7 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BikeDisplayComponent implements OnInit {
 
-  constructor() { }
+  @Input() bike: Bike;
+
+  constructor(
+    private _bs: BikeService,
+    private _us: UserService,
+  ) { }
 
   ngOnInit() {
   }

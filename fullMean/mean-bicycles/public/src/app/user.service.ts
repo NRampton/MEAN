@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class UserService {
 
-  logged_in_user = new Subject();
+  log_subject = new Subject();
 
   constructor(private _http: Http) { }
 
@@ -17,5 +17,7 @@ export class UserService {
   login(user): Observable<Response> {
     return this._http.post('/api/users/login', user);
   }
+
+  
 
 }

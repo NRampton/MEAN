@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BikeService } from '../bike.service';
+import { UserService } from '../user.service';
+import { Bike } from '../bike';
 
 @Component({
   selector: 'app-browse',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrowseComponent implements OnInit {
 
-  constructor() { }
+  bikes: Bike[];
+  
+  constructor(
+    private _bs: BikeService,
+    private _us: UserService,
+  ) { }
 
   ngOnInit() {
+    this.getAllBikesLocal();
   }
 
+  getAllBikesLocal() {
+    this._bs.getAllBikes().subscribe(
+      (res) => {
+        this.bikes = res.json();
+        console.log(this.bikes);
+      },
+      (err) => {},
+      () => console.log("Got the bikes!")
+    );
+  }
+  
 }

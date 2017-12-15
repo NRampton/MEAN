@@ -1,2 +1,2 @@
 <app-search></app-search>
-<app-bike-display></app-bike-display>
+<app-bike-display *ngFor="let bike of bikes" [bike]="bike"></app-bike-display>
