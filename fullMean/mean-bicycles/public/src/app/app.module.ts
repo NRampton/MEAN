@@ -18,6 +18,7 @@ import { SearchComponent } from './browse/search/search.component';
 import { CreateComponent } from './my-listings/create/create.component';
 import { EditComponent } from './my-listings/edit/edit.component';
 import { BikeService } from './bike.service';
+import { UserService } from './user.service';
 
 
 @NgModule({
@@ -39,7 +40,10 @@ import { BikeService } from './bike.service';
     FormsModule,
     HttpModule
   ],
-  providers: [BikeService],
+  providers: [
+    BikeService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

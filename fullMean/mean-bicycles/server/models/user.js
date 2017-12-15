@@ -13,7 +13,11 @@ const UserSchema = new Schema({
   },
   email: {
     type: String,
-    required: [true, "You must provide a valid email address".]
+    required: [true, "You must provide a valid email address."],
+    validate: {
+      validator: (address) => { return /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(address);},
+      message: "The email address you entered was not valid." 
+    },
   },
   password: {
     type: String,

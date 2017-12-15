@@ -6,7 +6,7 @@ ROUTES:
         login
         registration
       browse
-        search (includes an array of bike-display)
+        search (includes an array of bike-display partials)
       my-listings
         create
         edit

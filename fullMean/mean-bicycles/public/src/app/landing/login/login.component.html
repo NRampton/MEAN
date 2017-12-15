@@ -1,3 +1,19 @@
-<p>
-  login works!
-</p>
+<h5>Please log in:</h5>
+<form #loginFormData='ngForm' (submit)="loginHandler(user)">
+  <p><label>Email: <input 
+    type="text"
+    [(ngModel)]="user.email"
+    required
+    #loginemail='ngModel'
+    name="email"
+    ></label></p>
+  <p><label>Password: <input 
+    type="password"
+    name="password"
+    required
+    minlength="8"
+    #loginpassword='ngModel'
+    [(ngModel)]="user.password"
+    ></label></p>
+    <p><button class="login" type="submit" [disabled]="!loginFormData.valid">Login</button></p>
+</form> 

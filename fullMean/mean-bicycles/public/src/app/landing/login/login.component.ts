@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { User } from '../../user';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  @Output() notFreshEmitter = new EventEmitter();
+
+  user: User;
+
+  constructor(private _us: UserService) { }
 
   ngOnInit() {
+    this.user = new User();
+    this.user.email = "";
+  }
+
+  loginHandler(user) {
+    this.notFreshEmitter.emit(false);
+    console.log("loginHandler invoked");
+    this._us.login(user).subscribe
   }
 
 }

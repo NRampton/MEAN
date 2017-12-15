@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Bike = mongoose.model('Bike');
+const User = mongoose.model('User');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
 module.exports = {
 	index: function (req, res) {
@@ -25,13 +27,25 @@ module.exports = {
 		});
 	},
 	create: function (req, res) {
-		Bike.create(req.body, (err, bike) => {
-			if (err) {
-				console.log(`There was some sort of error in the create route:\n ${err}`);
-				return res.status(404).json(err);
-			}
-			return res.json(true);
-		});
+		console.log("request body:");
+		console.log(req.body);
+		console.log("Incoming request parameters are: ");
+		console.log(req.params);
+		User.findById(req.params.user_id, (err, user) => {
+			console.log("Found a user!");
+			console.log(user);
+			var bike = new Bike(req.body);
+			bike._user = user._id;
+			bike.save((err) => {
+				user.bikes.push(bike);
+				user.save((err) => {
+					if (err) {
+						return res.status(404).json(err);
+					}
+					return res.json(user);
+				})
+			})
+		})
 	},
 	update: function (req, res) {
 		Bike.findByIdAndUpdate(req.params.id, req.body, (err, bike) => {

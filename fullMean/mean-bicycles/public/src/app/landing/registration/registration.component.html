@@ -1,3 +1,39 @@
-<p>
-  registration works!
-</p>
+<h5>Not registered yet? Make an account!</h5>
+<form #formData='ngForm' (submit)="onSubmit(user)">
+  <p><label>*First Name: <input 
+    type="text"
+    name="first_name"
+    required
+    [(ngModel)]="user.first_name"
+    ></label></p>
+  <p><label>*Last Name: <input 
+    type="text"
+    name="last_name"
+    required
+    [(ngModel)]="user.last_name"
+    ></label></p>
+  <p><label>*Email: <input 
+    type="text"
+    name="email"
+    [(ngModel)]="user.email"
+    pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+    required
+    #email='ngModel'
+    ></label></p>
+    <p class="error" *ngIf="user.email.length != 0 && email.errors">Please make sure your email address is valid.</p>
+  <p><label>Password: <input 
+    type="password"
+    required
+    [(ngModel)]="user.password"
+    name="password"
+    minlength="8"
+    ></label></p>
+  <p><label>Confirm Password: <input 
+    type="password"
+    required
+    [(ngModel)]="user.confirm_password"
+    name="confirm_password"
+    ></label></p>
+    <p class="error" *ngIf="user.password != user.confirm_password">The two password fields must match.</p>
+  <p><button class="register" type="submit" [disabled]="!formData.valid || user.password != user.confirm_password">Register</button></p>
+</form>
