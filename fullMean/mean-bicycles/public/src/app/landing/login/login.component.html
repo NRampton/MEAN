@@ -16,4 +16,5 @@
     [(ngModel)]="user.password"
     ></label></p>
     <p><button class="login" type="submit" [disabled]="!loginFormData.valid">Login</button></p>
+    <p class="error" *ngIf="wrong">Credentials not recognized.</p>
 </form> 

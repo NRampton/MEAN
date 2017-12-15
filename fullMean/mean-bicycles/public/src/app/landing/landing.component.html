@@ -1,6 +1,6 @@
 <h1>Bicycle Marketplace</h1>
 <h3>Bike of the day!</h3>
-<app-bike-display></app-bike-display>
+<app-bike-display [bike]="bike"></app-bike-display>
 <app-registration (regEmitter)="freshen($event)"></app-registration>
 <app-login (notFreshEmitter)="unfreshen($event)"></app-login>
 <h3 *ngIf="fresh === true">Congratulations, you've registered successfully. Now go ahead and log in!</h3>

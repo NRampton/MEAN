@@ -10,7 +10,9 @@ import { UserService } from '../user.service';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-
+  
+  bike: Bike;
+  bikes: Bike[] = [];
   user = new User();
   fresh: boolean = false;
 
@@ -20,6 +22,18 @@ export class LandingComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.generateRandomBike();
+  }
+
+  generateRandomBike() {
+    this._bs.getAllBikes().subscribe(
+      res => {
+        this.bikes = res.json();
+        this.bike = this.bikes[(Math.floor(Math.random() * this.bikes.length) + 1)];
+        console.log(this.bikes);
+      },
+      err => console.error(err)
+    );
   }
 
   freshen(bool): void {

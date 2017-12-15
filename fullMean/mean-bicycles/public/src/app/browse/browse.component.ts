@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BikeService } from '../bike.service';
 import { UserService } from '../user.service';
 import { Bike } from '../bike';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-browse',
@@ -15,13 +16,17 @@ export class BrowseComponent implements OnInit {
   constructor(
     private _bs: BikeService,
     private _us: UserService,
+    private _router: Router
   ) { }
 
   ngOnInit() {
-    this.getAllBikesLocal();
+    this._us.checkSession().subscribe(
+      () => this.pagePrep(),
+      () => this._router.navigate(['/landing'])
+    );
   }
 
-  getAllBikesLocal() {
+  pagePrep() {                              //This now contains all the stuff we want to have done before the page loads.
     this._bs.getAllBikes().subscribe(
       (res) => {
         this.bikes = res.json();

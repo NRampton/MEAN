@@ -17,6 +17,7 @@ import { BikeDisplayComponent } from './browse/bike-display/bike-display.compone
 import { SearchComponent } from './browse/search/search.component';
 import { CreateComponent } from './my-listings/create/create.component';
 import { EditComponent } from './my-listings/edit/edit.component';
+
 import { BikeService } from './bike.service';
 import { UserService } from './user.service';
 
@@ -42,7 +43,7 @@ import { UserService } from './user.service';
   ],
   providers: [
     BikeService,
-    UserService
+    UserService,
   ],
   bootstrap: [AppComponent]
 })

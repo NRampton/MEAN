@@ -15,13 +15,17 @@ module.exports = {
 	
 	login: function (req, res) {
 		console.log('Hit login route...');
-		User.findOne({ email: req.body.email }).populate('bikes').exec((err, user) => {
-			if (err) {
+		User.findOne({ email: req.body.email }).populate('bikes').exec((err, user) => {			//check to make sure bikes are populating properly
+			if (err || !user) {
 				console.log(`There was some sort of error in the retrieveOne route:\n ${err}`);
 				return res.status(404).json(err);
 			}
-			req.session.logged_in = user;
+			//check password here! Do it as a promise, and set up a .then and a catch as below.
+			//.then( () => {}
+			req.session._id = user._id;
 			return res.json(user);
+			// )
+			//.catch( (err) => return res.satus(404).json(err));
 		});
 	},
 
