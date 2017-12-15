@@ -1,0 +1,21 @@
+ROUTES:
+  FRONT-END:
+    COMPONENTS:
+      landing
+        bike-display
+        login
+        registration
+      browse
+        search (includes an array of bike-display)
+      my-listings
+        create
+        edit
+
+
+  BACK-END (CRUD):
+    GET to /api/bikes calls index, returns an array of all the bike objects
+    GET to /api/bikes/:id calls retrieveOne, returns a specific bike object
+    POST to /api/bikes calls create, returns a freshly created bike object
+    PUT to /api/bikes/:id calls update, returns an updated bike object
+    DELETE to /api/bikes/:id calls destroy, returns the freshly deleted bike object
+    DELETE to /api/bikes calls theNuclearOption, destroys all bike records in the db
