@@ -2,16 +2,20 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class UserService {
 
   user = new Subject();
 
-  constructor(private _http: Http) { }
+  constructor(
+    private _http: Http,
+    private _httpClient: HttpClient
+  ) { }
 
-  register(user): Observable<Response>{
-    return this._http.post('/api/users', user);
+  register(user) {
+    return this._httpClient.post('/api/users', user);
   }
 
   login(user): Observable<Response> {
@@ -28,11 +32,6 @@ export class UserService {
   }
 
   checkSession() {
-    return this._http.get('/refresh').map((user) => {       //What is this map method supposed to be doing, and how can we do
-      this.setUser(user);                                   //that with an Observable<Response>?
-      return true;
-    })
+    return this._httpClient.get('/refresh');
   }
-  
-
 }

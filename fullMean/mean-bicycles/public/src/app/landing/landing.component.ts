@@ -28,7 +28,7 @@ export class LandingComponent implements OnInit {
   generateRandomBike() {
     this._bs.getAllBikes().subscribe(
       res => {
-        this.bikes = res.json();
+        this.bikes = res.json();            // Figure out what's coming back from this request.
         this.bike = this.bikes[(Math.floor(Math.random() * this.bikes.length) + 1)];
         console.log(this.bikes);
       },

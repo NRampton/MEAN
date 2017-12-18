@@ -17,7 +17,7 @@ module.exports = {
 		console.log('Hit login route...');
 		User.findOne({ email: req.body.email }).populate('bikes').exec((err, user) => {			//check to make sure bikes are populating properly
 			if (err || !user) {
-				console.log(`There was some sort of error in the retrieveOne route:\n ${err}`);
+				console.log(`There was some sort of error in the login route:\n ${err}`);
 				return res.status(404).json(err);
 			}
 			//check password here! Do it as a promise, and set up a .then and a catch as below.

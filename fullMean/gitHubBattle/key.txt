@@ -7,3 +7,7 @@ We have a left and a right component nested inside the battle component. These e
   The trick is that there won't be a route to get to either right or left, and those are the ones we want to set up as parents of the form, display, and results components. So how does that routing work?
 
 Two sibling router-outlets on one page if both are loading the same component initially?
+
+Okay, solved this with a bunch of *ngIf divs, per Brian Mendoza's advice. Otherwise it likely would never have worked.
+
+Next, when both users are registered, the fight button appears in the battle component. When that gets clicked, we need the battle to take place, the winner and loser declared, and the status variables of the two 

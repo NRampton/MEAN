@@ -1,0 +1,31 @@
+<div *ngIf="status === 'waiting'">
+  <form (submit)="submitHandler()" #formData='ngForm'>
+    <h3>Welcome, Player {{ player_num }}</h3><br>
+    <label for="username">What is your username, combatant?</label><br>
+    <input 
+    id="username"
+    required
+    [(ngModel)]="username"
+    name="username"
+    #checker="ngModel"
+    type="text"
+    ><br>
+    <br *ngIf="checker.valid">
+    <br *ngIf="checker.valid">
+    <p *ngIf="checker.errors">Anonymous fighters are not permitted in the ring!</p>
+    <button type="submit" [disabled]="formData.invalid">Enter the ring!</button>
+  </form>
+</div>
+<div *ngIf="status === 'fetching'">
+  Looking you up.
+</div>
+<div *ngIf="status === 'success'">
+  <img src="{{user.imageUrl}}" alt="Player {{player_num}} avatar">
+  <h4>{{user.name}}</h4>
+  <p>Not right?</p>
+  <button (click)="tryAgain()">Go back</button>
+</div>
+<div *ngIf="status === 'failed'">
+  <p>Are you sure you got that right?</p>
+  <button (click)="tryAgain()">Go back and try again.</button>
+</div>

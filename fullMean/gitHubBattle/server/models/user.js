@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
-  image: {
+  imageUrl: {
     type: String
   }
 }, {timestamps: true});

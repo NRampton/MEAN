@@ -1,0 +1,3 @@
+<app-display (ready)="prepareForBattle($event)" [player_num]="1"></app-display>
+<app-display (ready)="prepareForBattle($event)" [player_num]="2"></app-display>
+<a [routerLink]="['/results']"><button class="fight" *ngIf="ready" >FIIIIGGGGGHHHHTTT!!!!</button></a>

@@ -1,0 +1,5 @@
+<input #txtname placeholder="Put search name here" type="text" />
+
+<div *ngFor="let user of users | searchFilter: name : txtname.value">
+  <p>{{ user.name }}: {{ user.title }}</p>
+</div>

@@ -5,10 +5,10 @@ const UserSchema = new mongoose.Schema({
   email: { 
     type: String, 
     required: [true, "Email address is required"], 
-    validate: [{
+    validate: {
       validator: (address) => { return /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(address);},
       message: "The email address you entered was not valid." 
-    }],
+    },
   },
   first_name: { 
     type: String, 
